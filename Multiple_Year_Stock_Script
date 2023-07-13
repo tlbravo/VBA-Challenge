@@ -1,5 +1,3 @@
-
-
 Sub stocks()
 
 'Delcare variables'
@@ -55,9 +53,16 @@ For Each ws In Worksheets
                 ws.Range("J" & Summary_Table_Row).Interior.ColorIndex = 4
                 
             End If
+            
+         'Conditional formatting for Percent Change'
+            If Open_Price = 0 Then
+                Percent_Change = 0
+            Else
+                Percent_Change = (Close_Price - Open_Price) / Open_Price
+                
+            End If
 
-    'Calculate percent change and print'
-        Percent_Change = (Close_Price - Open_Price) / Open_Price
+    'Print Percent Change'
         ws.Range("K" & Summary_Table_Row).Value = Percent_Change
     'Update format of K column to show percentages'
         ws.Range("K" & Summary_Table_Row).NumberFormat = "0.00%"
@@ -119,3 +124,4 @@ Next ws
 
 
 End Sub
+
