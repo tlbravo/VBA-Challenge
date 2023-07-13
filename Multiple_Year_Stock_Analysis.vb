@@ -1,5 +1,3 @@
-
-
 Sub stocks()
 
 'Delcare variables'
